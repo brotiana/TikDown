@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "TikDown",
+  "version": "1.0",
+  "description": "Télécharge les vidéos TikTok HD et sans watermark",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "https://www.tiktok.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.tiktok.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TikTok Downloader"
+  }
+}
